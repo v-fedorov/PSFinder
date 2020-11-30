@@ -21,7 +21,7 @@
     "prettier": "^2.1.2"
   },
   "scripts": {
-    "start": "ts-node -O '{\"module\":\"commonjs\", \"target\":\"es2017\"}' ./find-ps5-script.ts",
+    "start": "ts-node -O '{\"module\":\"commonjs\", \"target\":\"es2017\"}' ./main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

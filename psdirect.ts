@@ -1,4 +1,4 @@
-import { Stores, updateCacheAndSendTextAsync } from "./find-ps5-script";
+import { Stores, updateCacheAndSendTextAsync } from "./main";
 
 const check = async (id: number): Promise<void> => {
   const res = await fetch(

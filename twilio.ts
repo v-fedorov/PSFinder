@@ -6,7 +6,6 @@ const client = require("twilio")(
 );
 
 const sendIsAvailableTextAsync = async (text: string) => {
-  // Log store
   var now = moment().format("MMM DD h:mm A");
   const body = `${now}: ${text}`;
 
@@ -18,10 +17,10 @@ const sendIsAvailableTextAsync = async (text: string) => {
   });
 };
 
-const callPhoneAsync = (): Promise<void> =>
+const callPhoneAsync = (text: string): Promise<void> =>
   client.calls
     .create({
-      twiml: "<Response><Say>We out here</Say></Response>",
+      twiml: `<Response><Say>${text}</Say></Response>`,
       from: process.env.FROM_PHONE_NUMBER,
       to: process.env.TO_PHONE_NUMBER,
     })

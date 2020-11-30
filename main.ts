@@ -48,11 +48,13 @@ export const updateCacheAndSendTextAsync = async ({
 
   if (isAvailable && (availableStoresCache[`${url}`] == null || availableStoresCache[`${url}`] == undefined)) {
     availableStoresCache[`${url}`] = true;
-    await sendIsAvailableTextAsync(`${item} AVAILABLE at ${retailer} - ${url}`);
-    await callPhoneAsync();
-  }
-  else if (!isAvailable && availableStoresCache[`${url}`]) {
+    const text = `${item} AVAILABLE at ${retailer} - ${url}`;
+
+    await sendIsAvailableTextAsync(text);
+    await callPhoneAsync(text);
+  } else if (!isAvailable && availableStoresCache[`${url}`]) {
     availableStoresCache[`${url}`] =  null;
+
     await sendIsAvailableTextAsync(`${item} NO LONGER AVAILABLE at ${retailer} - ${url}`);
   }
 };
